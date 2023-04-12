@@ -10,6 +10,9 @@ module.exports = function (defaults) {
         '@orbit/jsonapi',
       ],
     },
+    sassOptions: {
+      extension: 'scss'
+    }
   });
 
   const { Webpack } = require('@embroider/webpack');

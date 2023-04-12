@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400i,700);
+// These should be used for the background colours of the drug, and drug call cells, depending in what the call is.
+$susceptible-colour: #95d195;
+$intermediate-resistance-colour: #f6d481;
+$resistant-colour: #f67f7f;
+
+// The background of a sample in the sample list, when it is selected, and also the padding around the white drug resistance table.
+$selected-sample-background-color: #dddddd;
+
+//  Use this for all borders.
+$border-color: 1px solid #666;
+
+// Use this for all padding.
+$padding: 12px;
+
+// Use this for all text which is not white.
+$text-color: #555;
+$font-family: "Lato", sans-serif;
+$font-size: 1em;
+$font-weight: 400;
+
+// The headers at  the very top (Sam,ple name and Results)
+$column-header-background-color: #999999;
+$column-header-text-color: #fff;
+$column-header-font-weight: 700;
+
+//  Column headers of the drug calls table (Drug class, Drug, Call, Mutations)
+$drug-calls-table-header-background-color: #f9f9f9;
+
+// The column widths for the 4 columns of the drug calls table
+$drug-class-column-width: 280px;
+$mutations-table-width: 280px;
+$drug-column-width: 70px;
+$drug-call-column-width: 70px;
+
+// The width of the list of sample names on the left
+$samples-column-width: 196px;
+
+// The colour of the text which tells the user to click a sample when none are selcted.
+$blue-text-color: #32B1C6;
+
+// The color of the sample name ont he left and the badge which shows the completed status in the report.
+$completed-badge-background-color: #4DA87D;
+$sample-list-completed-item-color: #4DA87D;
+
+// For bold text (See images for reference).
+$bold-text-weight: 700;
+
+.result-viewer__list {
+    flex-basis: $samples-column-width;
+}
+
+.border {
+    border-width: 1px;
+    border-color: $border-color;
+}
+
+.sample-item {
+    color: $completed-badge-background-color;
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+}
+
+.selected-item {
+    background-color: $selected-sample-background-color;
+    border-right: $selected-sample-background-color 0px none !important;
+}
+
+.result-viewer__details{
+    background: $selected-sample-background-color;
+}
+
+.no-sample-selected {
+    color:$blue-text-color;
+}
+
+body{
+    max-height: 100vh;
+}

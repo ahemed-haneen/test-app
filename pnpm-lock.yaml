@@ -157,6 +157,9 @@ devDependencies:
   ember-cli-mirage:
     specifier: ^2.4.0
     version: 2.4.0(@babel/core@7.21.4)(@ember/test-helpers@2.9.3)(ember-qunit@6.2.0)
+  ember-cli-sass:
+    specifier: ^11.0.1
+    version: 11.0.1
   ember-cli-typescript:
     specifier: ^5.2.1
     version: 5.2.1
@@ -187,6 +190,9 @@ devDependencies:
   ember-template-lint:
     specifier: ^5.7.2
     version: 5.7.2
+  ember-truth-helpers:
+    specifier: ^3.1.1
+    version: 3.1.1
   eslint:
     specifier: ^8.37.0
     version: 8.37.0
@@ -223,6 +229,9 @@ devDependencies:
   qunit-dom:
     specifier: ^2.0.0
     version: 2.0.0
+  sass:
+    specifier: ^1.62.0
+    version: 1.62.0
   stylelint:
     specifier: ^15.4.0
     version: 15.4.0
@@ -4788,6 +4797,17 @@ packages:
       - supports-color
     dev: true
 
+  /broccoli-sass-source-maps@4.1.0:
+    resolution: {integrity: sha512-So3gTlP9AEJTponlRoL9Ti+xaMX1LnJUWD52mVT0Oq6PI8nIjX97XMW91JfY/4CXsprIDyGe/7rkiauE+XHdPQ==}
+    engines: {node: '>=10.24.1'}
+    dependencies:
+      broccoli-caching-writer: 3.0.3
+      include-path-searcher: 0.1.0
+      rsvp: 4.8.5
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /broccoli-slow-trees@3.1.0:
     resolution: {integrity: sha512-FRI7mRTk2wjIDrdNJd6znS7Kmmne4VkAkl8Ix1R/VoePFMD0g0tEl671xswzFqaRjpT9Qu+CC4hdXDLDJBuzMw==}
     dependencies:
@@ -6511,6 +6531,18 @@ packages:
       - supports-color
     dev: true
 
+  /ember-cli-sass@11.0.1:
+    resolution: {integrity: sha512-RMlFPMK4kaB+67seF/IIoY3EC4rRd+L58q+lyElrxB3FcQTgph/qmGwtqf9Up7m3SDbPiA7cccCOSmgReMgCXA==}
+    engines: {node: '>= 10.*'}
+    dependencies:
+      broccoli-funnel: 2.0.2
+      broccoli-merge-trees: 3.0.2
+      broccoli-sass-source-maps: 4.1.0
+      ember-cli-version-checker: 2.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /ember-cli-string-utils@1.1.0:
     resolution: {integrity: sha512-PlJt4fUDyBrC/0X+4cOpaGCiMawaaB//qD85AXmDRikxhxVzfVdpuoec02HSiTGTTB85qCIzWBIh8lDOiMyyFg==}
     dev: true
@@ -6608,6 +6640,14 @@ packages:
       walk-sync: 2.2.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /ember-cli-version-checker@2.2.0:
+    resolution: {integrity: sha512-G+KtYIVlSOWGcNaTFHk76xR4GdzDLzAS4uxZUKdASuFX0KJE43C6DaqL+y3VTpUFLI2FIkAS6HZ4I1YBi+S3hg==}
+    engines: {node: '>= 4'}
+    dependencies:
+      resolve: 1.22.2
+      semver: 5.7.1
     dev: true
 
   /ember-cli-version-checker@3.1.3:
@@ -7093,6 +7133,15 @@ packages:
     dependencies:
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 5.7.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /ember-truth-helpers@3.1.1:
+    resolution: {integrity: sha512-FHwJAx77aA5q27EhdaaiBFuy9No+8yaWNT5A7zs0sIFCmf14GbcLn69vJEp6mW7vkITezizGAWhw7gL0Wbk7DA==}
+    engines: {node: 10.* || >= 12}
+    dependencies:
+      ember-cli-babel: 7.26.11
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8953,6 +9002,10 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /immutable@4.3.0:
+    resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==}
+    dev: true
+
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -8969,6 +9022,10 @@ packages:
   /imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
+    dev: true
+
+  /include-path-searcher@0.1.0:
+    resolution: {integrity: sha512-KlpXnsZOrBGo4PPKqPFi3Ft6dcRyh8fTaqgzqDRi8jKAsngJEWWOxeFIWC8EfZtXKaZqlsNf9XRwcQ49DVgl/g==}
     dev: true
 
   /indent-string@4.0.0:
@@ -12306,6 +12363,16 @@ packages:
       micromatch: 4.0.5
       minimist: 1.2.8
       walker: 1.0.8
+    dev: true
+
+  /sass@1.62.0:
+    resolution: {integrity: sha512-Q4USplo4pLYgCi+XlipZCWUQz5pkg/ruSSgJ0WRDSb/+3z9tXUOkQ7QPYn4XrhZKYAK4HlpaQecRwKLJX6+DBg==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.0
+      source-map-js: 1.0.2
     dev: true
 
   /saxes@5.0.1:
