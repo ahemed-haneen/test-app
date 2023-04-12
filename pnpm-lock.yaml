@@ -25,6 +25,12 @@ devDependencies:
   '@glimmer/tracking':
     specifier: ^1.1.2
     version: 1.1.2
+  '@orbit/coordinator':
+    specifier: ^0.17.0
+    version: 0.17.0
+  '@orbit/jsonapi':
+    specifier: ^0.17.1
+    version: 0.17.1
   '@tsconfig/ember':
     specifier: ^2.0.0
     version: 2.0.0
@@ -2143,6 +2149,16 @@ packages:
 
   /@orbit/immutable@0.17.0:
     resolution: {integrity: sha512-WImAn7I6I35lXzXq/JA5d23yPGV8Vv+xn7DM6lysPJ3ZWOXBF7aBTDJAXYxNtgdEEJnat83PctUDO/QWEKofJQ==}
+    dev: true
+
+  /@orbit/jsonapi@0.17.1:
+    resolution: {integrity: sha512-icaXQOX5ItVuC1SrPS4U+D+xxEDhk473VMMrvn2xIg+h6nEW51g6wgEcHookjwJLMRhxgbShJLiR9WCwHWiEdA==}
+    dependencies:
+      '@orbit/core': 0.17.0
+      '@orbit/data': 0.17.0
+      '@orbit/records': 0.17.0
+      '@orbit/serializers': 0.17.0
+      '@orbit/utils': 0.17.0
     dev: true
 
   /@orbit/memory@0.17.2:
