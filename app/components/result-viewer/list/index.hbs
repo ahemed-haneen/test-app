@@ -1,0 +1,17 @@
+<div class="grow-0 result-viewer__list border">
+  <div class="border sample-item p-3">
+    Completed Samples
+  </div>
+  <div class="max-h-screen overflow-auto ">
+  {{#each @samples as |sample|}}
+    <div
+      class="border sample-item p-3
+        {{if (eq this.selectedSample.name sample.name) 'selected-item'}}"
+      {{on "click" (fn this.selectSample sample)}}
+    >
+      {{sample.name}}
+    </div>
+  {{/each}}
+  </div>
+</div>
+<ResultViewer::Details @details={{this.selectedSample}} />
