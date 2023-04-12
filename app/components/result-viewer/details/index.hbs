@@ -1,0 +1,46 @@
+<div class="flex-auto result-viewer__details p-3">
+  <div class="flex flex-col bg-white h-full p-3 justify-center items-center">
+    {{!-- {{#if @details}} --}}
+    {{#if true}}
+      <div class="flex flex-col w-full">
+        <div>
+          <div class=" flex flex-row flex-auto">
+            <div class="flex-auto">
+              Name:
+              {{@details.name}}
+            </div>
+            <div class="flex-auto text-right">
+              Analysis date:
+              {{@details.inserted_at}}
+            </div>
+          </div>
+          <div class="flex flex-row flex-auto">
+            <div class="flex-auto">
+              Sample ID:
+              {{@details.remoteId}}
+            </div>
+            <div class="flex-auto text-right flex flex-row justify-self-end justify-end">
+              Sample ID:
+              <div class="status-box">
+              {{@details.status}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          asdfsaf
+        </div>
+
+      </div>
+  These resistance calls are based on analysis of sequencing data and do not constitute medical advice. Further, no clinical decision should be based only on them. Please be sure to understand how these calls are made to ensure correct interpretation. For more information please view our terms and conditions at <a href="https://exatype.com/terms-of-use" >https://exatype.com/terms-of-use" </a> or contact us at support@hyraxbio.com
+Exatype sample ID: #{{@details.remoteId}}
+    {{else}}
+      <img class="p-3" src="assets/images/select-sample-graphic.png" />
+      <p class="no-sample-selected p-3">
+        To view the results for a sample, click the sample name in the list on
+        the left
+      </p>
+    {{/if}}
+  </div>
+  {{log @details}}
+</div>

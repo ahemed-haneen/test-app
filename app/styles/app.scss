@@ -75,6 +75,11 @@ $bold-text-weight: 700;
     color:$blue-text-color;
 }
 
+.status-box{
+    background-color: $completed-badge-background-color;
+    padding: 5px 10px;
+    color:white;
+}
 body{
     max-height: 100vh;
 }
