@@ -1,17 +1,82 @@
-<div class="grow-0 result-viewer__list border">
-  <div class="border sample-item p-3">
-    Completed Samples
-  </div>
-  <div class="max-h-screen overflow-auto ">
-  {{#each @samples as |sample|}}
+<div class={{concat "flex flex-row" (if this.selectedSample "" " h-full")}}>
+  <div id="sample-list" class="grow-0 shrink-0 result-viewer__list flex flex-col">
     <div
-      class="border sample-item p-3
-        {{if (eq this.selectedSample.name sample.name) 'selected-item'}}"
-      {{on "click" (fn this.selectSample sample)}}
+      class="h-4 search-results grow-0 shrink-0 basis-14 p-3.5 border box-shadow-inset"
     >
-      {{sample.name}}
+      <div class="flex flex-row item-center">
+        {{#if this.isSearchOpen}}
+          <input
+            type="text"
+            id="simple-search"
+            class="border w-32 text-black"
+            {{on "keyup" this.searchList}}
+          />
+          <svg
+            aria-hidden="true"
+            class="w-6 h-6 text-gray-500 basis-5 shrink-0 ml-3"
+            fill="white"
+            viewBox="0 0 60 60"
+            xmlns="http://www.w3.org/2000/svg"
+            {{on "click" this.toggleSearch}}
+          >
+            <line
+              x1="10"
+              y1="50"
+              x2="50"
+              y2="10"
+              stroke="white"
+              fill="white"
+              stroke-width="8"
+            />
+            <line
+              x1="10"
+              y1="10"
+              x2="50"
+              y2="50"
+              stroke="white"
+              fill="white"
+              stroke-width="8"
+            />
+          </svg>
+        {{else}}
+          <div class="grow shrink-0">
+            Sample Name
+          </div>
+          <svg
+            aria-hidden="true"
+            class="w-6 h-6 text-gray-500 dark:text-gray-400"
+            fill="white"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+            {{on "click" this.toggleSearch}}
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        {{/if}}
+      </div>
     </div>
-  {{/each}}
+    <div class="border border-t-0 sample-item p-3 box-shadow-inset">
+      Completed Samples
+    </div>
+    <div class="h-full overflow-auto">
+      {{#each this.filteredSamples as |sample|}}
+        <div
+          class="sample-item p-3 border border-y-light border-t-0
+            {{if
+              (eq this.selectedSample.name sample.name)
+              'selected-item border-r-0'
+              'box-shadow-inset'
+            }}"
+          {{on "click" (fn this.selectSample sample)}}
+        >
+          {{sample.name}}
+        </div>
+      {{/each}}
+    </div>
   </div>
+  <ResultViewer::Details @details={{this.selectedSample}} />
 </div>
-<ResultViewer::Details @details={{this.selectedSample}} />

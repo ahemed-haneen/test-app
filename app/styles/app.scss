@@ -8,7 +8,8 @@ $resistant-colour: #f67f7f;
 $selected-sample-background-color: #dddddd;
 
 //  Use this for all borders.
-$border-color: 1px solid #666;
+$border-color: 1px solid #a7a5a5;
+$border-light: 1px solid #d1cccc;
 
 // Use this for all padding.
 $padding: 12px;
@@ -37,62 +38,85 @@ $drug-call-column-width: 70px;
 $samples-column-width: 196px;
 
 // The colour of the text which tells the user to click a sample when none are selcted.
-$blue-text-color: #32B1C6;
+$blue-text-color: #32b1c6;
 
 // The color of the sample name ont he left and the badge which shows the completed status in the report.
-$completed-badge-background-color: #4DA87D;
-$sample-list-completed-item-color: #4DA87D;
+$completed-badge-background-color: #4da87d;
+$sample-list-completed-item-color: #4da87d;
 
 // For bold text (See images for reference).
 $bold-text-weight: 700;
 
 .result-viewer__list {
-    flex-basis: $samples-column-width;
+  flex-basis: $samples-column-width;
+}
+
+.search-results {
+  background-color: $column-header-background-color;
+  color: $column-header-text-color;
+  font-weight: $column-header-font-weight;
 }
 
 .border {
-    border-width: 1px;
-    border-color: $border-color;
+  border: $border-color;
+}
+
+.border-y-light {
+  border-top: $border-light;
+  border-bottom: $border-light
 }
 
 .sample-item {
-    color: $completed-badge-background-color;
-    font-family: $font-family;
-    font-size: $font-size;
-    font-weight: $font-weight;
+  color: $completed-badge-background-color;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
 }
 
 .selected-item {
-    background-color: $selected-sample-background-color;
-    border-right: $selected-sample-background-color 0px none !important;
+  background-color: $selected-sample-background-color;
+  border-right: $selected-sample-background-color 0px none !important;
 }
 
-.result-viewer__details{
-    background: $selected-sample-background-color;
+.result-viewer__details {
+  background: $selected-sample-background-color;
 }
 
 .no-sample-selected {
-    color:$blue-text-color;
+  color: $blue-text-color;
 }
 
-.status-box{
-    background-color: $completed-badge-background-color;
-    padding: 5px 10px;
-    color:white;
+.status-box {
+  background-color: $completed-badge-background-color;
+  padding: 5px 10px;
+  color: white;
 }
 
-.susceptible-legend{
-    background-color: $susceptible-colour;
+.susceptible {
+  background-color: $susceptible-colour;
 }
-.intermediate-legend{
-    background-color: $intermediate-resistance-colour;
+
+.intermediate {
+  background-color: $intermediate-resistance-colour;
 }
-.resistant-legend{
-    background-color: $resistant-colour;
+
+.resistant {
+  background-color: $resistant-colour;
 }
+
 .low-coverage-legend {
-    background-color: $selected-sample-background-color;
+  background-color: $selected-sample-background-color;
 }
-body{
-    max-height: 100vh;
+
+td,th {
+  border: $border-color;
+  padding: 0px;
+}
+th{
+  padding: 1rem;
+  text-align: left;
+}
+
+.box-shadow-inset {
+  box-shadow: -4px 0px 3px 0px #00000026 inset
 }

@@ -1,13 +1,54 @@
 <EmberTable as |t|>
-    <t.head @columns={{@columns}} />
-    <t.body @rows={{@rows}} as |b|>
-        <b.rowValue as |r|>
-      {{log 'r ' r r.rowValue}}
-            <r.cell as |value|>
-                {{log 'value ' value}}
-                {{value}}
-            </r.cell>
-        </b.rowValue>
-    </t.body>
-
-    </EmberTable>
+  <t.head
+    @columns={{@columns}}
+    @widthConstraint={{"eq-container"}}
+    @resizeMode={{"standard"}}
+   as |h| >
+    <h.row as |r|
+    >
+    <r.cell as |value|>
+      {{value.name}}
+      {{#if (eq value.name 'CALL')}}
+        <sup>1</sup>
+      {{/if}}
+    </r.cell></h.row>
+   </t.head>  
+  <t.body @rows={{@rows}} as |b|>
+    <b.row as |r|>
+      <r.cell as |cellValue columnValue rowValue|>
+          {{#if (eq columnValue.name "DRUG")}}
+            {{#each cellValue as |drug|}}
+              <div
+                class={{concat (if
+                  (eq drug.call "I")
+                  "intermediate"
+                  (if (eq drug.call "R") "resistant" "susceptible")) " px-3 py-1"
+                }}
+              >{{drug.short_name}}</div>
+            {{/each}}
+          {{else if (eq columnValue.name "CALL")}}
+            {{#each cellValue as |drug|}}
+              <div
+                class={{concat (if
+                  (eq drug.call "I")
+                  "intermediate"
+                  (if (eq drug.call "R") "resistant" "susceptible")) " px-2 py-1 text-center"
+                }}
+              >{{drug.call}}</div>
+            {{/each}}
+          {{else if (eq columnValue.valuePath "mutations")}}
+            {{#if cellValue}}
+              <span class="p-4" >
+            Mutations:
+              {{cellValue}}
+              </span>
+            {{/if}}
+          {{else}}
+          <span class="p-4">
+            {{cellValue}}
+          </span>
+          {{/if}}
+      </r.cell>
+    </b.row>
+  </t.body>
+</EmberTable>

@@ -23,7 +23,8 @@
     "lint:types": "tsc --noEmit",
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "generate": "ember generate"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
@@ -82,6 +83,7 @@
     "ember-cli-sass": "^11.0.1",
     "ember-cli-typescript": "^5.2.1",
     "ember-fetch": "^8.1.2",
+    "ember-intl": "^5.7.2",
     "ember-load-initializers": "^2.1.2",
     "ember-modifier": "^4.1.0",
     "ember-orbit": "^0.17.3",

@@ -1,54 +1,87 @@
-<div class="flex-auto result-viewer__details p-3">
-    {{#if true}}
-    {{!-- {{#if @details}} --}}
-     <div class="flex flex-col bg-white h-full p-3">
-      <div class="flex flex-col w-full">
-        <div>
-          <div class=" flex flex-row flex-auto">
-            <div class="flex-auto">
-              Name:
-              {{@details.name}}
+<div
+  id="reports-container"
+  class="flex flex-col overflow-hidden {{if @details 'h-min' 'h-full'}} w-full"
+  {{did-insert this.didInsert}} 
+  {{did-update this.updateListHeight @details}}
+>
+  <div class="h-4 search-results grow-0 shrink-0 basis-14 p-4">Results</div>
+  <div class="flex-auto result-viewer__details p-3 max-w-full">
+    {{#if @details}}
+      <div class="flex flex-col bg-white h-min p-3">
+        <div class="flex flex-col w-full h-max mb-3">
+          <div>
+            <div class="flex flex-row flex-auto mb-3">
+              <div class="flex-auto">
+                Name:
+                {{@details.name}}
+              </div>
+              <div class="flex-auto text-right">
+                {{#if @details.inserted_at}}
+                  Analysis date:
+                  {{format-date @details.inserted_at format="hhmmss"}}
+                  <span class="font-normal text-slate-500 text-xs">{{format-time
+                      @details.inserted_at
+                      hour="numeric"
+                      minute="numeric"
+                      hour12=false
+                    }}</span>
+                {{/if}}
+              </div>
             </div>
-            <div class="flex-auto text-right">
-              Analysis date:
-              {{@details.inserted_at}}
-            </div>
-          </div>
-          <div class="flex flex-row flex-auto">
-            <div class="flex-auto">
-              Sample ID:
-              {{@details.remoteId}}
-            </div>
-            <div class="flex-auto text-right flex flex-row justify-self-end justify-end">
-              Sample status:
-              <div class="status-box rounded-md">
-              {{@details.status}}
+            <div class="flex flex-row flex-auto mb-3">
+              <div class="flex-auto">
+                Sample ID:
+                {{@details.remoteId}}
+              </div>
+              <div
+                class="flex-auto text-right flex flex-row justify-self-end justify-end items-center"
+              >
+                Sample status:
+                <div class="status-box rounded-md mx-3">
+                  Completed
+                </div>
               </div>
             </div>
           </div>
+          <div
+            class="flex flex-row items-center max-w-min py-2 border-y-light border-r-0 border-l-0 mt-3 mb-3 whitespace-nowrap"
+          >
+            <div class="mx-3 h-3 w-3 rounded-xl susceptible legend" />
+            Susceptible
+            <div class="mx-3 h-3 w-3 rounded-xl intermediate legend" />
+            Intermediate
+            <div class="mx-3 h-3 w-3 rounded-xl resistant legend" />
+            Resistant
+            <div class="mx-3 h-3 w-3 rounded-xl low-coverage-legend" />
+            Low coverage
+          </div>
+          <div>
+            
+            <Table @rows={{this.rows}} @columns={{this.columns}} />
+          </div>
         </div>
-        <div class="flex flex-row align-center">
-          <div class="mx-3 h-3 w-4 rounded-xl susceptible-legend" /> Susceptible
-          <div class="mx-3 h-3 w-4 rounded-xl intermediate-legend" /> Intermediate
-          <div class="mx-3 h-3 w-4 rounded-xl resistant-legend" /> Resistant
-          <div class="mx-3 h-3 w-4 rounded-xl low-coverage-legend" /> Low coverage
-  </div>
-        <div>
-          {{log "details" this.rows}}
-          <Table @rows={{this.rows}} @columns={{this.columns}} />
-  </div>
-  </div>
+        <p><sup>1</sup>
+          These resistance calls are based on analysis of sequencing data and do
+          not constitute medical advice. Further, no clinical decision should be
+          based only on them. Please be sure to understand how these calls are
+          made to ensure correct interpretation. For more information please
+          view our terms and conditions at
+          <a
+            href="https://exatype.com/terms-of-use"
+          >https://exatype.com/terms-of-use" </a>
+          or contact us at support@hyraxbio.com Exatype sample ID: #{{@details.remoteId}}
+        </p>
       </div>
-  These resistance calls are based on analysis of sequencing data and do not constitute medical advice. Further, no clinical decision should be based only on them. Please be sure to understand how these calls are made to ensure correct interpretation. For more information please view our terms and conditions at <a href="https://exatype.com/terms-of-use" >https://exatype.com/terms-of-use" </a> or contact us at support@hyraxbio.com
-Exatype sample ID: #{{@details.remoteId}}
     {{else}}
-  <div class="flex flex-col bg-white h-full p-3 justify-center items-center">
-      <img class="p-3" src="assets/images/select-sample-graphic.png" />
-      <p class="no-sample-selected p-3">
-        To view the results for a sample, click the sample name in the list on
-        the left
-      </p>
-  </div>
+      <div
+        class="flex flex-col bg-white h-full p-20 justify-center items-center"
+      >
+        <img class="p-3" src="assets/images/select-sample-graphic.png" />
+        <p class="no-sample-selected p-3">
+          To view the results for a sample, click the sample name in the list on
+          the left
+        </p>
+      </div>
     {{/if}}
-  {{log @details}}
+  </div>
 </div>
