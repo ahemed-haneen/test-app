@@ -1,0 +1,13 @@
+<EmberTable as |t|>
+    <t.head @columns={{@columns}} />
+    <t.body @rows={{@rows}} as |b|>
+        <b.rowValue as |r|>
+      {{log 'r ' r r.rowValue}}
+            <r.cell as |value|>
+                {{log 'value ' value}}
+                {{value}}
+            </r.cell>
+        </b.rowValue>
+    </t.body>
+
+    </EmberTable>

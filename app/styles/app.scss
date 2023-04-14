@@ -80,6 +80,19 @@ $bold-text-weight: 700;
     padding: 5px 10px;
     color:white;
 }
+
+.susceptible-legend{
+    background-color: $susceptible-colour;
+}
+.intermediate-legend{
+    background-color: $intermediate-resistance-colour;
+}
+.resistant-legend{
+    background-color: $resistant-colour;
+}
+.low-coverage-legend {
+    background-color: $selected-sample-background-color;
+}
 body{
     max-height: 100vh;
 }
